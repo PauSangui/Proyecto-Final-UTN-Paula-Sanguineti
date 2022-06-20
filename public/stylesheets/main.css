@@ -1,0 +1,589 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Kalam&family=Satisfy&display=swap');
+
+/*var*/
+:root{
+--header-height: 6rem;
+
+--main-color: #eebd95;
+--first-color: #75492b;
+--second-color: #dfd6a7;
+--white-color: #fff;
+--black-color: #151515;
+
+/*nahum gothic es la fuente gral
+amatic sc es la finita, mayus, tipo caricatura
+indie flower es la que esta linda para hacer como 'anotaciones'
+kalam linda pa anotaciones tmb
+kalam pa anotaciones tmb pero es mas cursiva*/
+--font-body: 'Nanum Gothic', sans-serif;
+--font-Capitalize: 'Amatic SC', cursive;
+--font-family: 'Kalam', cursive;
+--font-family-cursive: 'Satisfy', cursive;
+--font-family-first: 'Indie Flower', cursive;
+
+
+--big-font-size: 2rem;
+--h1-font-size: 1.25rem;
+--h2-font-size: 1rem;
+--h3-font-size: 0.870rem;
+--normal-font-size: 0.813rem;
+--small-font-size: 0.600rem;
+}
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   list-style: none;
+   outline: none;
+   border: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+   background-color: var(--white-color);
+   font-size: var(--normal-font-size);
+   font-family: var(--font-body);
+   overflow-x: hidden;
+}
+
+/*caja superior*/
+.header{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: rgba(255,255,255,0.3);
+    z-index: 100;
+    transition: all 0.4s ease;
+}
+
+/*es el div donde estan el logo, el titulo , lo q seria la barra de: 'CAT blog galeria etc' y tambien el icono de barritas tipo 'menu'*/
+.navbar{
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+    align-items: center;
+   padding: 20px;
+}
+
+/*Logo de CAT*/
+.logo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+/*Imagen/icono de CAT en la barra superior*/
+.logo img{
+    max-height: 70px;
+}
+
+/*titulo del header 'CAT Cosmetica natural responsable'*/
+.Titulo{
+    font-weight: 400;
+    font-size: var(--h1-font-size);
+}
+
+/*es el nav dentro del div anterior, el listado de 'CAT, blog, Galeria, etc' y el nav list es el ul dentro del nav*/
+.nav-menu .nav-list{
+    display: flex;
+    position: relative;
+}
+
+.nav-menu li{
+    margin-right: 1rem;
+}
+
+/*class de cada uno de los links q van en la barra del header, osea 'CAT blog etc'*/
+.nav-link{
+    font-size: var(--h2-font-size);
+    color: var(--black-color);
+    font-weight: normal;
+    text-transform: capitalize;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/*efecto hover para los links de la barra del header*/
+.nav-link::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--first-color);
+    transition: all 0.4s ease-in-out;
+}
+
+.nav-link:hover::before{
+    width: 100%;
+}
+
+/*aca le pongo la palabra 'active' a CAT pa qe quede d ese color y uno se de cuenta que es tipo la pag principal y pinta las otras palabras tmb pero solo en plan hover*/
+.nav-link:hover,
+.nav-link.active{
+    color: var(--first-color);
+}
+
+/*class del div donde esta el icono de BARS q desaparece segun la resolucion de la pantalla*/
+.nav-toggle{
+    font-size: var(--h1-font-size);
+    padding: 5px 5px 0;
+    border: 2px solid transparent;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+}
+
+.nav-toggle:hover{
+    color: var(--first-color);
+    border: 2px solid var(--first-color);
+}
+
+/*Inicio contenido principal: VIDEO*/
+.home #hero{
+    width: 100%;
+    height: 100%;
+    background-image: transparent;
+    position: relative;
+    
+}
+
+.back-video{
+   position: relative;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: -1;
+   width: 100%;
+   max-height: 500px;
+   object-fit: cover;
+}
+
+/*.content{
+    padding: 90px;
+    position: absolute;
+    text-align: right;
+}
+.content h1{
+    font-size: 90px;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    transition: 0.5s;
+}
+.content h2{
+    top: 500px;
+    font-size: 24px;
+    color: #fff;
+    margin: 25px 0;
+
+.content a{
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid #fff;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+}*/
+/*------Fin contenido principal: VIDEO---------*/
+
+/*------Inicio contenido principal: ABOUT*--------/
+
+/*(section) del contenedor de info personal Lucia + Foto + descripcion*/
+.about{
+    width: 100%;
+    padding: 5rem 0;
+    background-image: url(/images/floresTransparent.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    z-index: -1;
+}
+
+.about .container{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+/*Titulo y subtitulo 'about' (h2+h3+span)*/
+.section-title{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title h2{
+    font-family: var(--font-Capitalize);
+    font-size: var(--big-font-size);
+    font-weight: 600;
+    line-height: 3rem;
+    color: var(--first-color);
+}
+
+.section-title h3{
+    font-size: var(--h2-font-size);
+    font-weight: 400;
+    line-height: 3rem;
+}
+.section-title span{
+    font-size: var(--h2-font-size);
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+/*Div imagen + descripcion*/
+.about-detail{
+    width: 100%;
+    padding: 2rem;
+}
+
+.about-detail-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    align-items: center;
+    border: 2px solid var(--first-color);
+    border-radius: 30px;
+    padding: 1rem;
+}
+
+.about-img img{
+    position: relative;
+    left: 70px;
+    width: 70%;
+    border-radius: 30px;
+    filter: drop-shadow(16px 10px 10px rgba(0, 0, 0, 0.25));
+}
+
+.about-description{
+    position: relative;
+    padding: 5rem;
+    font-size: var(--h3-font-size);
+}
+
+.about-description::before{
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    right: 5%;
+    background-color: var(--main-color);
+    border-radius: 30px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.25);
+    z-index: -1;
+}
+
+.about-description span{
+    font-family: var(--font-family-first);  
+    font-weight: bold;
+    font-size: var(--h2-font-size);
+}
+/*------Fin contenido principal: ABOUT--------*/
+
+/*---------Inicio contenido COMBOS-----------*/
+/*el fondo de color de la seccion*/
+.package{
+    width: 100%;
+    padding: 7rem 0;
+    background-color: var(--main-color);
+    border-radius: 0 300px;
+    background-image: url(/images/bifloresTransparent.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    z-index: -1;
+}
+.seccion-title h1{
+    font-family: var(--font-Capitalize);
+    font-weight: 600;
+    text-align: center;
+}
+.seccion-title h1 span{
+    font-family: var(--font-Capitalize);
+    font-weight: 600;
+    color: var(--first-color);
+}
+.package-cards{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 2.5rem;
+}
+/*Todas las cajas de combos*/
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--white-color);
+    box-shadow: 8px 8px 16px rgba(0,0,0,0.25);
+    border-radius: 30px;
+    padding: 1.5rem;
+    margin: 10px;
+    transition: all 0.4s ease-in-out;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.card-title{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.card-title h3{
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+}
+.card-items{
+    margin-bottom: 1rem;
+}
+/*reels de los combos (flexbox)*/
+.Video-Combo{
+    position: relative;
+    left: 40px;
+    width: 250px;
+    max-height: 350px;
+    object-fit: cover;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    
+}
+/*texto descriptivo + precio de las cajas q tienen combos*/
+.item p{
+    margin-top: 10px;
+    width: 330px;
+}
+.item p span{
+    font-weight: bold;
+}
+#Precio-Combos{
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--first-color);
+    border-radius: 20px;
+    padding: 1rem;
+}
+/*------Fin contenido COMBOS--------*/
+
+/*------Inicio seccion Galeria------- */
+.gallery{
+    width: 100%;
+    padding: 7rem 0;
+    position: relative;
+}
+.gallery::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 5%;
+    left: 0;
+    background-color: var(--main-color);
+    z-index: -1;
+    background-image: url(/images/florBackTransparent.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    z-index: -1;
+}
+.section-title h1{
+    margin-top: 5%;
+    font-family: var(--font-Capitalize);
+}
+.gallery-list-img{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2.5rem auto;
+    position: relative;
+}
+.gallery-img img{
+    width: 230px;
+    height: 280px;
+    margin: 0.5rem;
+    filter: drop-shadow(16px 16px 16px rgba(0, 0,0, 0.2));
+}
+.gallery-img:hover img{
+    transform: scale(1.1);
+}
+/*----------Fin GALERIA------------*/
+
+/*------Inicio seccion FORMULARIO------- */
+.Formulario{
+    background-color: var(--main-color);
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 70px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 3rem 2rem
+}
+.Formulario form{
+    margin: 2rem auto;
+    background: #fff;
+    text-align: center;
+    max-width: 20rem;
+    box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.25);
+    padding: 2rem;
+}
+/*inicio Textarea*/
+.consulta{
+    font-weight: bolder;
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    bottom: 20px;   
+}
+.form-control{
+    font-size: small;
+}
+/*Inicio Boton "enviar" de Formulario*/
+.btn {
+	background-color:var(--first-color);
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:14px;
+	padding:2px 76px;
+    margin-top: 10px;
+	text-decoration:none;
+}
+.btn:hover {
+	background-color:#ffffff;
+    color: var(--first-color);
+    border-color: var(--first-color);
+    
+}
+.btn:active {
+	position:relative;
+	top: 1px;
+}
+.separation{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 3rem;
+    border-bottom: 1px solid var(--first-color);
+    color: var(--first-color)
+}
+.Message{
+    font-family: var(--font-body);
+    font-size: var(--h3-font-size);
+    font-weight: 400;
+    text-align: center;
+    color: var(--white-color);
+    border: 3px solid var(--first-color);
+    background-color: var(--first-color);
+    position: relative;
+    padding:2px 76px;
+   
+}
+/*--------Fin seccion FORMULARIO------- */
+
+/*------Inicio FOOTER------- */
+.footer-list{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+    padding: 7rem 0;
+    border-bottom: 1px solid var(--first-color);
+}
+.footer-data{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.footer-data img{
+    width: 150px;
+}
+.footer-data-social{
+    margin-top: 1rem;
+}
+.footer-data-social i{
+    color: var(--first-color);
+    font-size: var(--h1-font-size);
+}
+.footer-data h2{
+    font-weight: bolder;
+    font-size: var(--h1-font-size);
+    line-height: 1.5rem;
+    color: var(--first-color);
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+.footer-data p{
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.footer .copy{
+    text-align: center;
+    padding: 1rem 0;
+}
+.footer .copy p{
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+.footer .copy span{
+    font-size: var(--h2-font-size);
+    line-height: 1rem;
+}
+/*------fin FOOTER------- */
+@media all and (max-width: 920px) {
+    .nav-menu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100vh;
+        background-color: var(--main-color);
+        font-size: var(--h2-font-size);
+        text-align: center;
+        text-transform: capitalize;
+        padding-top: var(--header-height);
+        box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        transition: all 0.4s ease-in-out;
+    }
+    .show-nav{
+        width: 60%;
+    }
+    .nav-menu .nav-list{
+        display: block;
+    }
+    .nav-menu li{
+        padding: 15px 0;
+    }
+    .nav-link{
+        font-size: var(--h3-font-size);
+    }
+    .nav-toggle{
+        display: block;
+    }
+    .about-detail-content{
+        grid-template-columns: unset;
+    }
+}
