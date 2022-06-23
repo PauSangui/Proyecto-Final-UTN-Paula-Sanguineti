@@ -1,13 +1,15 @@
 const { createPool } = require("mysql");
 var pool = require('./bd');
 
-async function getNovedades(){
+/*sirve para listar las novedades*/
+async function getNovedades() {
     var query = 'select * from novedades';
     var rows = await pool.query(query);
     return rows;
 }
 
-async function deleteNovedadesById(id){
+
+async function deleteNovedadesById(id) {
     var query = 'delete from novedades where id = ?';
     var rows = await pool.query(query, [id]);
     return rows;
@@ -46,4 +48,4 @@ async function buscarNovedades(busqueda) {
     return rows;
 }
 
-module.exports = {getNovedades, deleteNovedadesById, insertNovedad, getNovedadById, modificarNovedadById, buscarNovedades}
+module.exports = { getNovedades, deleteNovedadesById, insertNovedad, getNovedadById, modificarNovedadById, buscarNovedades }

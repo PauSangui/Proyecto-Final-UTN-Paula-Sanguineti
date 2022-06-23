@@ -46,6 +46,8 @@ router.get('/', async function (req, res, next) {
    });
 });
 
+
+/*boton que elimina las novedades*/
 router.get('/eliminar/:id', async (req, res, next) => {
    var id = req.params.id;
    let novedad = await novedadesModel.getNovedadById(id);
@@ -55,7 +57,7 @@ router.get('/eliminar/:id', async (req, res, next) => {
 
    await novedadesModel.deleteNovedadesById(id);
    res.redirect('/admin/novedades')
-});
+}); //cierra get de eliminar
 
 router.get('/agregar', (req, res, next) => {
    res.render('admin/agregar', {

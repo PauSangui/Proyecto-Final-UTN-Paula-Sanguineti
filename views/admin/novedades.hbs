@@ -1,55 +1,61 @@
 
 {{!--fila 1--}}
 <div class="row">
-    <div class="col">
-        <p class="text-right">
-            <span>Bienvenido {{usuario}}!</span>
-            <a href="/admin/login/logout" class="btn btn-light">Cerrar sesión
-            <i class="fas fa-sign-out-alt"></i></a>
+    <div class="col" id="bienvenido-usuario">
+        <p class="text-center">
+            <span>Bienvenidx {{usuario}}!</span>
         </p>
     </div>
 </div>
 {{!--fin fila 1--}}
 
-{{!--fila 2--}}
-<div class="row">
-    <div class="col-7" style="margin-top: -9px;">
-        <h2>Listado de novedades</h2>
+<div class="Listado-de-novedades">
+    {{!--fila 2--}}
+    <div class="row">
+        <div class="col-7">
+            <h2 class="title-Listado-de-novedades">Listado de novedades<h2>
+        </div>
     </div>
-    <div class="col-5 text-right">
-        <a href=" " class="btn btn-light">
-            <i class="fas fa-plus">Nuevo</i>
-        </a>
-    </div>
-</div>
-{{!--fin fila 2--}}
+    {{!--fin fila 2--}}
 
-{{!--fila 3--}}
-<div class="row">
-    <div class="col">
-        <table class="table">
-            <thead>
-                <tr class="table-light">
-                    <th scope="col">#</th>
-                    <th scope="col">Titulo</th>
-                    <th scope="col" class="text-right">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Titulo</td>
-                    <td class="text-right">
-                        <a href=" " class="btn btn-light">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <a href=" " class="btn btn-light">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    {{!--fila 3--}}
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr class="table-light">
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col" class="text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each novedades}}
+                    <tr>
+                        <th scope="row">{{id}}</th>
+                        <td>{{titulo}}</td>
+                        <td class="text-right">
+                            <a href=" " class="btn btn-light" style="padding: 10px;">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-light" style="padding: 10px;">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
 </div>
 {{!--fin fila 3--}}
+</div>
+<div class="text-end">
+    <a href=" " class="btn btn-light">Agregar nueva entrada
+        <i class="fas fa-plus"></i>
+    </a>
+</div>
+<div class="text-center" style="margin-top: 30px;">
+    <a href="/admin/login/logout" class="btn btn-light">Cerrar sesión
+    <i class="fas fa-sign-out-alt"></i></a>
+</div>

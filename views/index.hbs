@@ -58,8 +58,41 @@
             </div>
         </div>
     </section>
-
 <!---Fin contenido principal: SOBRE MI--->
+
+<!---Inicio contenido novedades--->
+<h3 class="nov-title">Chusmea las <span>NOVEDADES</span> que tenemos para vos!</h3>
+<div class="py-4" id="Box-novedades" >
+    <div class="md-5 offset-md-2 py-3">
+        <ul class="lista-novedades">
+            {{#each novedades}}
+            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#modal{{id}}" class="Titulos-nov"><img src="/images/logoCatSinFondo.png" class="hvr-grow-rotate" alt="...">{{titulo}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <!---Inicio modal--->
+    {{#each novedades}}
+    <div class="modal fade" id="modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>{{subtitulo}}</h6>
+                    <p>{{cuerpo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <!--fin modal-->
+</div>
+<!---Fin contenido novedades--->
 
 <!---Inicio contenido COMBOS--->
     <section class="package" id="package">
