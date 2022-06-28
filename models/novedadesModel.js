@@ -8,30 +8,34 @@ async function getNovedades() {
     return rows;
 }
 
-
+/*sirve para borrar las novedades*/
 async function deleteNovedadesById(id) {
     var query = 'delete from novedades where id = ?';
     var rows = await pool.query(query, [id]);
     return rows;
 }
 
+/*sirve para insertar novedades*/
 async function insertNovedad(obj) {
-    try{
+    try {
        var query = "insert into novedades set ?";
-       var rows =await pool.query(query, [obj])
+       var rows = await pool.query(query, [obj])
        return rows;
+
     } catch (error) {
        console.log(error);
        throw error;
-    }
-}
+    } //cierra catch
+}//cierra insert de novedad
 
-async function getNovedadById(id){
+/*traigo los datos para modificar una sola novedad*/
+async function getNovedadById(id) {
     var query = "select * from novedades where id = ?";
     var rows = await pool.query(query, [id]);
     return rows[0];
 }
 
+/*UPDATE - se va a actualizar lo q edite de la novedad cuando apriete el boton Guardar*/
 async function modificarNovedadById(obj, id){
     try{
         var query = "update novedades set ? where id = ?";
@@ -39,13 +43,13 @@ async function modificarNovedadById(obj, id){
         return rows;
     } catch (error){
         throw error;
-    }
-}
+    };//cierra catch
+};//cierra modific 
 
 async function buscarNovedades(busqueda) {
     var query = "select * from novedades where titulo like ? OR subtitulo like ? OR cuerpo like ? ";
     var rows = await pool.query(query, ['%' + busqueda + '%', '%' + busqueda + '%', '%' + busqueda + '%']);
     return rows;
-}
+};
 
 module.exports = { getNovedades, deleteNovedadesById, insertNovedad, getNovedadById, modificarNovedadById, buscarNovedades }

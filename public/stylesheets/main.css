@@ -312,7 +312,7 @@ body{
 }
 
 #Box-novedades{
-    margin-left: 150px;
+    margin-left: 130px;
     margin-right: 150px;
     margin-bottom: 70px;
     border: 3px solid #75492b;
@@ -328,6 +328,10 @@ body{
     color: black;
     font-weight: bold;
 }
+.lista-novedades li{
+    margin-bottom: 8px;
+}
+
 /* Grow Rotate */
 .hvr-grow-rotate {
     max-width: 60;
@@ -345,6 +349,7 @@ body{
     -webkit-transform: scale(1.1) rotate(4deg);
     transform: scale(1.1) rotate(4deg);
   }
+
 /*---------Fin contenido NOVEDADES-----------*/
 
 /*---------Inicio contenido COMBOS-----------*/
@@ -634,6 +639,40 @@ body{
 }
 
 /*------FIN SECCION NOVEDADES.HBS------- */
+
+/*------INICIO SECCION AGREGAR.HBS------- */
+#Container-agregar {
+    margin: 40px auto;
+}
+
+#Col-agregar {
+    text-align: center;
+}
+
+.Titulo-agregar {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#form-agregar {
+    margin-bottom: 15px;
+}
+/*------FIN SECCION AGREGAR.HBS------- */
+
+/*------INICIO SECCION MODIFICAR.HBS------- */
+#Container-modificar {
+    margin: 40px auto;
+}
+
+.Titulo-modificar {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#form-modificar {
+    margin-bottom: 15px;
+}
+/*------FIN SECCION MODIFICAR.HBS------- */
 
 @media all and (max-width: 920px) {
     .nav-menu{

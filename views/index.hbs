@@ -66,7 +66,7 @@
     <div class="md-5 offset-md-2 py-3">
         <ul class="lista-novedades">
             {{#each novedades}}
-            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#modal{{id}}" class="Titulos-nov"><img src="/images/logoCatSinFondo.png" class="hvr-grow-rotate" alt="...">{{titulo}}</a></li>
+            <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#modal{{id}}" class="Titulos-nov"><img src="{{imagen}}  " class="hvr-grow-rotate" alt="...">    {{titulo}}</a></li>
             {{/each}}
         </ul>
     </div>
@@ -79,10 +79,11 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                        <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <img src="{{imagen}}" alt="...">
                     <h6>{{subtitulo}}</h6>
                     <p>{{cuerpo}}</p>
                 </div>
@@ -207,7 +208,7 @@
             <p class="Message">{{message}}</p>
         {{/if}}
     <a href="#Contacto" id="Contacto"></a>
-    <form action="/" method="post">
+    <form action="/" method="post" id="contact_form">
       <h4 class="consulta">Dejanos tu duda o consulta aquí</h4>
       <div class="mb-2">
         <textarea id="mensaje" class="form-control" placeholder="Escribe tu mensaje aqui" cols="30" rows="10" name="mensaje"></textarea>
@@ -229,6 +230,7 @@
         <input type="tel" class="form-control" id="tel" placeholder="Telefono" name="telefono"/>
       </div>
       <button class="btn">Enviar</button>
+      <span id="feedback"></span>
     </form>
 
   </section>

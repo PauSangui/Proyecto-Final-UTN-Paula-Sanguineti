@@ -6,11 +6,11 @@ var util = require('util');
 var cloudinary = require('cloudinary').v2;
 
 var uploader = util.promisify(cloudinary.uploader.upload);
-var destroy = util.promisify(cloudinary.uploader.destroy);
+const destroy = util.promisify(cloudinary.uploader.destroy);
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-   // var novedades = await novedadesModel.getNovedades();
+   //var novedades = await novedadesModel.getNovedades();
    var novedades;
    if (req.query.q === undefined) {
       novedades = await novedadesModel.getNovedades();
@@ -50,6 +50,7 @@ router.get('/', async function (req, res, next) {
 /*boton que elimina las novedades*/
 router.get('/eliminar/:id', async (req, res, next) => {
    var id = req.params.id;
+   
    let novedad = await novedadesModel.getNovedadById(id);
    if (novedad.img_id) {
       await (destroy(novedad.img_id));
@@ -59,15 +60,18 @@ router.get('/eliminar/:id', async (req, res, next) => {
    res.redirect('/admin/novedades')
 }); //cierra get de eliminar
 
+/*formulario que agrega las novedades*/
 router.get('/agregar', (req, res, next) => {
    res.render('admin/agregar', {
       layout: 'admin/layout'
-   });
-});
+   }); //cierra render
+}); //cierra get agregar
 
+/*este sirve pa q cuando toco el boton de agregar, me agrega una nueva novedad*/
 router.post('/agregar', async (req, res, next) => {
    console.log(req.body)
    try {
+
       var img_id = '';
       if (req.files && Object.keys(req.files).length > 0) {
          imagen = req.files.imagen;
@@ -76,9 +80,8 @@ router.post('/agregar', async (req, res, next) => {
 
       if (req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != "") {
 
-         await novedadesModel.insertNovedad({
-            ...req.body,
-            img_id
+         await novedadesModel.insertNovedad({...req.body, //spread, traer info previa + img
+         img_id
          });
          res.redirect('/admin/novedades')
       } else {
@@ -86,18 +89,19 @@ router.post('/agregar', async (req, res, next) => {
             layout: 'admin/layout',
             error: true,
             message: 'Todos los campos son requeridos'
-         })
-      }
+         }) //cierra render
+      }//cierra else
    } catch (error) {
       console.log(error)
       res.render('admin/agregar', {
          layout: 'admin/layout',
          error: true,
          message: 'No se cargo la novedad'
-      });
-   }
+      });//cierra render
+   }//cierra catch
 });
 
+/*modificar y traigo la novedad que seleccione*/
 router.get('/modificar/:id', async (req, res, next) => {
    var id = req.params.id;
    var novedad = await novedadesModel.getNovedadById(id);
@@ -105,8 +109,8 @@ router.get('/modificar/:id', async (req, res, next) => {
    res.render('admin/modificar', {
       layout: 'admin/layout',
       novedad
-   });
-});
+   });//cierra render
+}); //cierra get modificar
 
 router.post('/modificar', async (req, res, next) => {
    try {
@@ -127,12 +131,15 @@ router.post('/modificar', async (req, res, next) => {
          await (destroy(req.body.img_original));
       }
 
-      let obj = {
+      //console.log(req.body.id); //para ver si trae id
+      var obj = {
          titulo: req.body.titulo,
          subtitulo: req.body.subtitulo,
          cuerpo: req.body.cuerpo,
          img_id
       }
+
+      //console.log(obj) //para ver si trae los datos
       await novedadesModel.modificarNovedadById(obj, req.body.id);
       res.redirect('/admin/novedades');
    } catch (error) {
@@ -141,8 +148,8 @@ router.post('/modificar', async (req, res, next) => {
          layout: 'admin/layout',
          error: true,
          message: 'No se modifico la novedad'
-      })
-   }
-})
+      });
+   };//cierra catch
+});//cierra post modificar
 
 module.exports = router;
